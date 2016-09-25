@@ -10,7 +10,7 @@ Getting started
 
 1) Open your `build.gradle` on your project root and add a dependency.
 
-```gradle:build.gradle
+```gradle
 buildscript {
     repositories {
         maven {
@@ -25,7 +25,7 @@ buildscript {
 
 2) Open your module build script file and add the following scripts just after apply plugin: 'com.android.application'.
 
-```gradle:app/build.gradle
+```gradle
 apply plugin: 'com.github.ymegane.balto'
 
 // Optional configurations
