@@ -2,7 +2,7 @@ apply plugin: 'groovy'
 apply plugin: 'maven-publish'
 
 group 'com.github.ymegane.balto'
-version '0.1.0'
+version '0.1.1'
 
 repositories {
     mavenCentral()

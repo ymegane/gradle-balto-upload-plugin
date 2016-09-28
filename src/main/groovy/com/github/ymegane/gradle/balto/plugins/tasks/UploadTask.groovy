@@ -67,7 +67,7 @@ class UploadTask extends DefaultTask {
     }
 
     private static String getToken(Project project) {
-        String token = project.baltoUpload.userToken ?: project.file(System.getenv('BALTO_USER_TOKEN'))
+        String token = project.baltoUpload.userToken ?: System.getenv('BALTO_USER_TOKEN')
         if (!token?.trim()) {
             throw new GradleException('user_token is missing. Please enter the user_token.')
         }
