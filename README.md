@@ -39,8 +39,8 @@ baltoUpload {
             sourceFile = file("./build/outputs/apk/app-debug.apk")
             projectToken = "[your project token]"
             releaseNote = "Upload from gradle plugin"
-            // default value is "0"
-            readyForReview = "1"
+            // API default value is "1"
+            readyForReview = "0"
         }
     }
 }

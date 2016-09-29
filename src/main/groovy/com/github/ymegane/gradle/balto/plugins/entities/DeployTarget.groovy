@@ -8,7 +8,7 @@ class DeployTarget implements Named {
     File sourceFile
     String projectToken
     String releaseNote
-    String readyForReview = "0"
+    String readyForReview
 
     DeployTarget() {}
 
