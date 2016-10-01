@@ -1,0 +1,16 @@
+baltoUpload {
+    userToken = 'user token'
+
+    apks {
+        test {
+            sourceFile = null
+            projectToken = 'project token'
+            releaseNote = 'release note'
+        }
+
+        test2 {
+            sourceFile = null
+            readyForTest = '1'
+        }
+    }
+}

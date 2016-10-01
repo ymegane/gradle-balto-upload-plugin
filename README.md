@@ -1,4 +1,4 @@
-# Gradle Balto Upload Plugin
+# Gradle Balto Upload Plugin [![Build Status](https://travis-ci.org/ymegane/gradle-balto-upload-plugin.svg?branch=master)](https://travis-ci.org/ymegane/gradle-balto-upload-plugin)
 
 This is the Balto upload plugin for the Gradle.  
 You can build and deploy your apps to Balto by running a single task.
