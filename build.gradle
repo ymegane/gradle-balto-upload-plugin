@@ -79,5 +79,10 @@ bintray {
         githubRepo = "ymegane/gradle-balto-upload-plugin"
         githubReleaseNotesFile = 'README.md'
 
+        version {
+            name = '0.1.2'
+            vcsTag = '0.1.2'
+
+        }
     }
 }
