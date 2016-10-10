@@ -1,6 +1,25 @@
 launguage: java
+
+env:
+  global:
+    - secure: "CzPAdFVNeHoKzezqZ3r8X7PMsR8wotKEUeMzgH9xKzIuM4RC+VZPs17g4KTJzHNrXrjRoylpRKsCpTtTiHOqq+FDd6vqZb2sP44BjoR73lJM0lBdKDtJnmBcdJTqEaIrHQ5GrWP1Jlu52qOU+EZNUpks+gxaUqcmCLQT3a1fU7XVXJVQh0AOO5tzJK9B7C+4cF6XF2pxwJWBvLMyozBm1W1I5Riy7Vy3XqldUke9TF9E6b5vbIYyPk11KZlWkOiAO3TXfuQ90eYXCvj08965JdFv/NIvs3g2c9li0Eg0lmX71ciZaDDKFtizst/fI647jqwvEI/EUSZINLsUlAQTsKi2EWgZru3R1s41zPb4GPn6EUvEUFZsb4j5Bi/j3SKBSqC1u/KwsgfQD5EMuElprLRtqaW4EOGsFdvS2WLDrIZj0E6/I9QDuSUuy+nwpNP9oYmfGLS+g4vivZ/VUvKaAO3SYHp3U71XlJoDSow3CmolOKr9COPSxjonReDmmrkqtmt9GHQEje0zwymr6rM252CBG+twudjMTfcJKeTS9SpftyN7C1ATw447X9vw23IE5JT2YC47mv+OUTaMKfKi3Fd4j+q/kwDKyXnp6r7cLfPnoxwuGWic51u0pJFh1spAGgTtwvWVpJasNrjtElPt0wPX5EObgvaKbJ5/dHO5mv8="
+    - secure: "cVPebDBsFHHyCjJphR0DY0/37MTUzH47r85QJAghwWc+UtZocaVwqs8pF8lC6kuNPvhDhKXlZyi/9NI1oNvzLAYTXVQNAlfGRO1KAoD7EUMsy/m1J/3bTU1XTkCV7HHop0JhLySJ08aJIGaU06Kxi5otG8YdcGDK1QtEA1/y0NjYjvGGUBoAjSAowtCWpiZWry6wN5XgciqXpSMWjcgY+iIykFBeUMf97sM39Ig71eyKZOnH8z8/Z+MpyLwjXD57eGZOzqOC3SvQIq9fd2WM3TMxLUsjo42GEW6tuedcTcuO9yIPNGuvzcvtZy5Ut5yekT/jw2N6Mygs3XJz0IF3/praJIVVz8jIRBaS654Glyf4nv6EKg2PUovxXXiQHO2+aMnfZB+IoiAFlEWE6Sy1KPJj/yxw23ODYoJf3IiGH1lOj45C10adQK20+37K4RORNp5norl2wMdsW8FsSdtm1dyWsZNKKg9LruXHO/dyYP0abM7rc08VLAaxVTf1y3+6W9Bwh0ZK9kBzTIaqixMHqmsGU2ty5Dvkn5aZaeWG3r8HxshaLcmfZHLAWRF0jCGV7fX5Ii3Wlg4u9Pnnzq0/xIF1neWf0kFw7/LH4g2z7DxkYzeOkm2uQnDdaoRcMHSW4ROX/KXGwmWjMwdRsNIjfSCsMUZl4t683vtlYRFEmbM="
+
 sudo: false
 jdk:
 - oraclejdk8
 script:
 - "./gradlew build test"
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+
+deploy:
+  provider: script
+  script: ./release.sh
+  on:
+    tags: true
+    repo: ymegane/gradle-balto-upload-plugin

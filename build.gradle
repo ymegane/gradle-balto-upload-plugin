@@ -1,5 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+    }
+}
+
 apply plugin: 'groovy'
 apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
 
 group 'com.github.ymegane.balto'
 version '0.1.2'
@@ -48,5 +59,27 @@ publishing {
         maven {
             url "$rootDir/repository"
         }
+    }
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+
+    publications = ['mavenJava']
+
+    publish = true
+
+    pkg {
+        repo = 'maven'
+        name = "gradle-balto-upload-plugin"
+        desc = 'You can build and deploy your apps to Balto by running a single task.'
+        websiteUrl = 'https://github.com/ymegane/gradle-balto-upload-plugin'
+        issueTrackerUrl = 'https://github.com/ymegane/gradle-balto-upload-plugin/issues'
+        vcsUrl = 'https://github.com/ymegane/gradle-balto-upload-plugin.git'
+        licenses = ['Apache-2.0']
+        githubRepo = "ymegane/gradle-balto-upload-plugin"
+        githubReleaseNotesFile = 'README.md'
+
     }
 }
