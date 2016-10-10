@@ -12,9 +12,6 @@ apply plugin: 'groovy'
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
-group 'com.github.ymegane.balto'
-version '0.1.2'
-
 repositories {
     mavenCentral()
 }
@@ -34,15 +31,9 @@ task javadocJar(type: Jar, dependsOn: groovydoc) {
     from "${buildDir}/javadoc"
 }
 
-task sourcesJar(type: Jar) {
+task sourceJar(type: Jar) {
     from sourceSets.main.allSource
     classifier = 'sources'
-}
-
-artifacts {
-    archives jar
-    archives javadocJar
-    archives sourcesJar
 }
 
 task wrapper(type: Wrapper) {
@@ -52,7 +43,14 @@ task wrapper(type: Wrapper) {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            groupId 'com.github.ymegane.balto'
+            artifactId 'balto-upload'
+            version '0.1.2'
+
             from components.java
+
+            artifact sourceJar
+            artifact javadocJar
         }
     }
     repositories {
