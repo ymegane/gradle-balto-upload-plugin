@@ -1,9 +1,12 @@
-# Gradle Balto Upload Plugin [![Build Status](https://travis-ci.org/ymegane/gradle-balto-upload-plugin.svg?branch=master)](https://travis-ci.org/ymegane/gradle-balto-upload-plugin)
+# Gradle Balto Upload Plugin [![Build Status](https://travis-ci.org/ymegane/gradle-balto-upload-plugin.svg?branch=master)](https://travis-ci.org/ymegane/gradle-balto-upload-plugin) [ ![Download](https://api.bintray.com/packages/ymegane/maven/gradle-balto-upload-plugin/images/download.svg) ](https://bintray.com/ymegane/maven/gradle-balto-upload-plugin/_latestVersion)
 
 This is the Balto upload plugin for the Gradle.  
 You can build and deploy your apps to Balto by running a single task.
 
 Balto [https://www.balto.io/](https://www.balto.io/)
+
+This plugin is an unofficial.  
+So, please don't ask to Balto team for this plugin.
 
 Getting started
 -------
@@ -13,9 +16,7 @@ Getting started
 ```gradle
 buildscript {
     repositories {
-        maven {
-            url 'https://ymegane.github.io/gradle-balto-upload-plugin/repository'
-        }
+        jcenter()
     }
     dependencies {
         classpath 'com.github.ymegane.balto:balto-upload:0.1.+'
