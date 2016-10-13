@@ -55,7 +55,7 @@ publishing {
     }
     repositories {
         maven {
-            url "$rootDir/repository"
+            url "$rootDir/docs/repository"
         }
     }
 }
