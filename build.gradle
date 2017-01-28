@@ -45,7 +45,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId 'com.github.ymegane.balto'
             artifactId 'balto-upload'
-            version '0.1.2'
+            version '1.0.0'
 
             from components.java
 
@@ -80,9 +80,13 @@ bintray {
         githubReleaseNotesFile = 'README.md'
 
         version {
-            name = '0.1.2'
-            vcsTag = '0.1.2'
+            name = '1.0.0'
+            vcsTag = '1.0.0'
 
         }
     }
+}
+
+task getHomeDir << {
+    println gradle.gradleHomeDir
 }
