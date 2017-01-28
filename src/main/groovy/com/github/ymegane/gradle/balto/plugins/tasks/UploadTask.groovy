@@ -87,8 +87,8 @@ class UploadTask extends DefaultTask {
             entity.addPart(key, new StringBody(params.get(key), charset))
         }
 
-        HTTPBuilderFactory.restClient(project.baltoUpload.endpoint).request(Method.POST, ContentType.JSON) { req ->
-            uri.path = "/api/v1/builds/upload"
+        HTTPBuilderFactory.restClient(project.baltoUploadPlugin.endpoint).request(Method.POST, ContentType.JSON) { req ->
+            uri.path = " /api/v2/builds/upload"
             req.entity = entity
         } as HttpResponseDecorator
     }
