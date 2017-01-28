@@ -33,7 +33,7 @@ class UploadTask extends DefaultTask {
     }
 
     private DeployTarget findTarget() {
-        DeployTarget target = project.baltoUpload.apks.findByName(outputName)
+        DeployTarget target = project.baltoUploadPlugin.apks.findByName(outputName)
         if (!target)
             target = new DeployTarget(outputName)
         if (!target.sourceFile)
@@ -67,7 +67,7 @@ class UploadTask extends DefaultTask {
     }
 
     private static String getToken(Project project) {
-        String token = project.baltoUpload.userToken ?: System.getenv('BALTO_USER_TOKEN')
+        String token = project.baltoUploadPlugin.userToken ?: System.getenv('BALTO_USER_TOKEN')
         if (!token?.trim()) {
             throw new GradleException('user_token is missing. Please enter the user_token.')
         }
@@ -87,8 +87,8 @@ class UploadTask extends DefaultTask {
             entity.addPart(key, new StringBody(params.get(key), charset))
         }
 
-        HTTPBuilderFactory.restClient(project.baltoUpload.endpoint).request(Method.POST, ContentType.JSON) { req ->
-            uri.path = "/api/v1/builds/upload"
+        HTTPBuilderFactory.restClient(project.baltoUploadPlugin.endpoint).request(Method.POST, ContentType.JSON) { req ->
+            uri.path = " /api/v2/builds/upload"
             req.entity = entity
         } as HttpResponseDecorator
     }

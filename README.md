@@ -1,12 +1,18 @@
 # Gradle Balto Upload Plugin [![Build Status](https://travis-ci.org/ymegane/gradle-balto-upload-plugin.svg?branch=master)](https://travis-ci.org/ymegane/gradle-balto-upload-plugin) [ ![Download](https://api.bintray.com/packages/ymegane/maven/gradle-balto-upload-plugin/images/download.svg) ](https://bintray.com/ymegane/maven/gradle-balto-upload-plugin/_latestVersion)
 
+Now, Balto SDK supports uploading from gradle task!!  
+Help is here ;) [Deploy apk using Gradle](https://balto.helpscoutdocs.com/article/71-deploy-apk-using-gradle)
+
+---
+
 This is the Balto upload plugin for the Gradle.  
 You can build and deploy your apps to Balto by running a single task.
 
 Balto [https://www.balto.io/](https://www.balto.io/)
+> Balto is a feedback tool that makes feedback fun!
 
-This plugin is an unofficial.  
-So, please don't ask to Balto team for this plugin.
+** This plugin is an unofficial.  **  
+** So, please don't ask to Balto team about this plugin. **
 
 Getting started
 -------
@@ -19,7 +25,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.ymegane.balto:balto-upload:0.1.+'
+        classpath 'com.github.ymegane.balto:balto-upload:1.0.0'
     }
 }
 ```
@@ -30,7 +36,7 @@ buildscript {
 apply plugin: 'com.github.ymegane.balto'
 
 // Optional configurations
-baltoUpload {
+baltoUploadPlugin {
     userToken = "[your user token]"
 
     // You can also specify additional options for each flavor.

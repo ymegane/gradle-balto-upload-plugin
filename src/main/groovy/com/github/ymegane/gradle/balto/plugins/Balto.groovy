@@ -24,7 +24,7 @@ class Balto implements Plugin<Project> {
         apkTargets.all {
             tasksToCreate.add name
         }
-        project.extensions.add 'baltoUpload', new BaltoExtension(apkTargets)
+        project.extensions.add 'baltoUploadPlugin', new BaltoExtension(apkTargets)
     }
 
     def createBaltoTasks(project) {
