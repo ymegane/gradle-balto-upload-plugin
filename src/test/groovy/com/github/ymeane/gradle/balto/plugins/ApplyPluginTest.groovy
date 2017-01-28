@@ -14,6 +14,6 @@ class ApplyPluginTest {
         Project target = ProjectBuilder.builder().build();
         target.apply plugin: 'com.github.ymegane.balto'
 
-        assertTrue(target.extensions.baltoUpload instanceof BaltoExtension)
+        assertTrue(target.extensions.baltoUploadPlugin instanceof BaltoExtension)
     }
 }

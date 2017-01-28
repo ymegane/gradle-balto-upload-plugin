@@ -33,7 +33,7 @@ class UploadTask extends DefaultTask {
     }
 
     private DeployTarget findTarget() {
-        DeployTarget target = project.baltoUpload.apks.findByName(outputName)
+        DeployTarget target = project.baltoUploadPlugin.apks.findByName(outputName)
         if (!target)
             target = new DeployTarget(outputName)
         if (!target.sourceFile)
@@ -67,7 +67,7 @@ class UploadTask extends DefaultTask {
     }
 
     private static String getToken(Project project) {
-        String token = project.baltoUpload.userToken ?: System.getenv('BALTO_USER_TOKEN')
+        String token = project.baltoUploadPlugin.userToken ?: System.getenv('BALTO_USER_TOKEN')
         if (!token?.trim()) {
             throw new GradleException('user_token is missing. Please enter the user_token.')
         }
